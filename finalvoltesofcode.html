@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VaultofCodes | Registration</title>
+  <link rel="stylesheet" href="finalvoltesofcode.css" />
+  <!-- Font Awesome for Human Icon -->
+  <script src="https://kit.fontawesome.com/6fdfd9b519.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Task 1: Card Component with Human Icon -->
+  <section class="card-container">
+    <div class="card">
+      <i class="fas fa-user-circle fa-6x" style="color: #666;"></i>
+      <h2>Dharesh SD</h2>
+      <p>Frontend Developer Intern</p>
+    </div>
+  </section>
+
+  <!-- Task 2: Interactive User Registration Form -->
+  <section class="form-container">
+    <h2>User Registration Form</h2>
+    <form id="registrationForm">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" required>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" required>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" required>
+      </div>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" required>
+      </div>
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" required>
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <select required>
+          <option value="">Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Upload Profile Picture</label>
+        <input type="file" required>
+      </div>
+      <div class="form-group checkbox">
+        <input type="checkbox" required>
+        <label>I agree to the Terms and Conditions</label>
+      </div>
+      <div id="passwordStrength">Password strength: </div>
+      <button type="submit">Register</button>
+    </form>
+  </section>
+
+  <script>
+    const password = document.getElementById("password");
+    const strength = document.getElementById("passwordStrength");
+
+    password.addEventListener("input", () => {
+      const val = password.value;
+      let score = 0;
+      if (val.length >= 8) score++;
+      if (/[A-Z]/.test(val)) score++;
+      if (/\d/.test(val)) score++;
+      if (/[\W]/.test(val)) score++;
+
+      const levels = ['Very Weak', 'Weak', 'Medium', 'Strong'];
+      strength.textContent = "Password strength: " + (levels[score] || "Very Weak");
+    });
+  </script>
+
+</body>
+</html>
